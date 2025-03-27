@@ -1,0 +1,22 @@
+kachow() {
+    double x = 0;
+    double y = 0;
+    double z = 0;
+    int valid = 0;
+
+    while (valid == 0) {
+        kachout "Enter three non-zero numbers (x, y, z):" "\n";
+        kachin x, y, z;
+
+        if (x == 0 || y == 0 || z == 0) {
+            kachout "Error: Please enter only non-zero values! "\n"";
+        } else {
+            valid = 1;
+        }
+    }
+
+    double result = x * y * z;
+    kachout "The product of ", x, ", ", y, " and ", z, " is: ", result, "\n";
+    
+    return 0;
+}

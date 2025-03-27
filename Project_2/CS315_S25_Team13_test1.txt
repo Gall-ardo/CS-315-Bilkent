@@ -1,0 +1,74 @@
+int calculateExpression(int a, int b, int c) {
+    if (b == 0) {
+        kachout "Error: b cannot be zero for modulo operation\n";
+        return (-1);
+    }
+    return (a * b) + (c / 2) - (a % b);
+}
+
+double checkNumbers(int x, int y) {
+    if (x > y) {
+        if (x > 100) {
+            kachout "x is greater than y and exceeds 100\n";
+            return 3.0;
+        } else {
+            kachout "x is greater than y but less than or equal to 100\n";
+            return 2.0;
+        }
+    } elif (x < y) {
+        if (y > 100) {
+            kachout "y is greater than x and exceeds 100\n";
+            return 1.0;
+        } else {
+            kachout "y is greater than x but less than or equal to 100\n";
+            return 0.5;
+        }
+    } else {
+        kachout "x and y are equal\n";
+        return 0.0;
+    }
+}
+
+kachow() {
+    # Input output
+    int num1;
+    int num2;
+    int num3;
+    int numNumber = 3;
+    
+    kachout "Please enter ", numNumber, " integer numbers: \n";
+    kachin num1, num2, num3;
+    
+    # Input validation with nested if-else
+    if (num1 >= 0) {
+        if (num2 >= 0) {
+            if (num3 >= 0) {
+                kachout "All numbers are non-negative\n";
+            } else {
+                kachout "num3 is negative\n";
+            }
+        } else {
+            kachout "num2 is negative\n";
+        }
+    } else {
+        kachout "num1 is negative\n";
+    }
+    
+    # Functions
+    int result = calculateExpression(num1, num2, num3);
+    
+    # Elif
+    if (result < 0) {
+        kachout "Result is negative: ", result, "\n";
+    } elif (result == 0) {
+        kachout "Result is zero\n";
+    } elif (result < 100) {
+        kachout "Result is positive but less than 100: ", result, "\n";
+    } else {
+        kachout "Result is greater than or equal to 100: ", result, "\n";
+    }
+    
+    # Test checkNumbers function with result validation
+    double checkResult = checkNumbers(num1, 43);
+    return 0;
+}

@@ -1,0 +1,31 @@
+double foo(double p, double q) {
+    kachout "Function name: foo \n";
+    kachout "Parameter p: ", p, "\n";
+    kachout "Parameter q: ", q, "\n";
+    
+    if (p > q) {
+        return p;
+    } else {
+        return q;
+    }
+}
+
+kachow() {
+    vector<double> a_values = {3.15, 7, 0.03, -1.7};
+    vector<double> b_values = {9, -1.2, 1.2};
+    double c;
+    int i = 0;
+    int j = 0;
+    
+    while (i < 4) {
+        j = 0;
+        while (j < 3) {
+            c = foo(a_values[i], b_values[j]);
+            kachout "a: ", a_values[i], ", b: ", b_values[j], ", c: ", c, "\n";
+            j++;
+        }
+        i++;
+    }
+    
+    return 0;
+}
