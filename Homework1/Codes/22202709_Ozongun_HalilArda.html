@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Array Homework</title>
+</head>
+<body>
+  <h1>Open the browser console to view output</h1>
+  <script>
+    
+    console.log("1: Legal types for subscripts: ");
+    let arr1 = [1, 2, 3, 4, 5];
+    console.log(arr1[3]);
+    let id = 3;
+    console.log(arr1[id]);
+    console.log(arr1["1"]);
+    console.log(arr1[1.0]);
+    console.log(arr1[[1]]);
+
+    console.log(arr1[true]); 
+    console.log(arr1["ataturk"]);
+
+
+    console.log("\n\n2: Range checking in element references:");
+    console.log(arr1[10]);
+    console.log(arr1[-1]);
+
+
+    console.log("\n\n3: Ragged multidimensional arrays:");
+    let ragged = [
+        [1, 2, 3],
+        [4, 5],
+        [6, 7, 8, 9]
+    ];
+    console.log(ragged);
+    console.log(Array.isArray(ragged));
+    console.log(Array.isArray(ragged[0]));
+
+
+
+    console.log("\n\n4: Initialization of arrays:");
+    let init1 = [1, 2, 3, "ataturk", true];
+    console.log(init1);
+
+    let init2 = Array(5); // one parameter -> 5 length with empty items.
+    console.log(init2);
+
+    let init3 = Array(3, 4, 5); // parameters are list 
+    console.log(init3);
+
+    let init4 = Array.of(5); // creates [5]
+    console.log(init4);
+
+    let init5 = Array.from("ataturk"); // from iterable object
+    console.log(init5);
+
+    let init6 = Array.from({ length: 3 }, (_, i) => i + 1); // 
+    console.log(init6);
+
+    let init7 = new Uint32Array(5);
+    console.log(init7);
+
+
+    console.log("\n\n5: Array Slice:");
+    arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let slice = arr1.slice(1, 3); // (begin, end)
+    console.log(slice); 
+    let slice2 = arr1.slice(3); // (begin)
+    console.log(slice2);
+    let slice3 = arr1.slice(-3); // (begin)
+    console.log(slice3); 
+    let slice4 = arr1.slice(3, -2); // (begin, end)
+    console.log(slice4);
+    let slice5 = arr1.slice(-3, -1); // (begin, end)
+    console.log(slice5);
+
+    // using a filter function
+    let filtered = arr1.filter((item) => item > 5);
+    console.log("Filtered values (item > 5):", filtered);
+
+    
+
+    console.log("\n\n6: Allowed operators:");
+    // JS arrays support: [], length, push, pop, shift, unshift, slice, splice, concat, etc.
+
+    const a1 = [1, 2, 3];
+    const a2 = [1, 2, 3];
+    const a3 = [1, 2, 4];
+
+    // Equality
+    console.log("a1 == a2:", a1 == a2);   // false (different references)
+    console.log("a1 === a2:", a1 === a2); // false
+    const a4 = a1;
+    console.log("a1 === a4:", a1 === a4); // true
+
+    // Comparison (doesn't work as expected)
+    console.log("a1 < a3:", a1 < a3);     // false (compares string form)
+    console.log("a1 > a3:", a1 > a3);     // false
+
+    // Concatenation with +
+    const result = a1 + a3;
+    console.log("a1 + a3:", result); // "1,2,31,2,4" – not real concatenation
+
+    // Correct way to concat (not operator-based)
+    const concat = a1.concat(a3);
+    console.log("a1.concat(a3):", concat);
+
+    // Bitwise operations on individual values
+    const x = 5; // 0101
+    const y = 3; // 0011
+    console.log("x & y:", x & y);     // 1
+    console.log("x | y:", x | y);     // 7
+    console.log("x ^ y:", x ^ y);     // 6
+    console.log("~x:", ~x);           // -6
+    console.log("x << 1:", x << 1);   // 10
+    console.log("x >> 1:", x >> 1);   // 2
+
+    // Membership: "in" checks keys, not values
+    console.log("1 in a1:", 1 in a1);         // true (index 1 exists)
+    console.log("10 in a1:", 10 in a1);       // false
+    console.log("a1.includes(2):", a1.includes(2)); // true (value check)
+
+  </script>
+</body>
+</html>
