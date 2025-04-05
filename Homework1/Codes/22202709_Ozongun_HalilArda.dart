@@ -1,3 +1,5 @@
+import 'package:collection/collection.dart';
+
 void main(){
   print("1: Legal types for subscripts");
   List<int> arr1 = [1, 2, 3, 4, 5];
@@ -67,31 +69,28 @@ void main(){
   var a = [1, 2, 3];
   var b = [4, 5, 6];
   var c = [1, 2, 3];
-
+  
+  print("a: $a, b: $b, c: $c");
 
   print("a == c: ${a == c}"); // false, different objects
-  print("identical(a, c): ${identical(a, c)}"); // false
+  print("identical(a, c): ${identical(a, c)}"); // false, different objects
 
-  // + (concatenation)
+  var d = a; 
+  print("a == d: ${a == d}"); // true, same object
+  print("identical(a, d): ${identical(a, d)}"); // true, same object
+
+  Function eq = const ListEquality().equals;
+  print("ListEquality: ${eq(a, c)}"); 
+
+  // concatenation
   var ab = a + b;
-  print("a + b: $ab");
+  print("Concatenation: $ab");
 
-  // in operator
-  print("2 in a: ${a.contains(2)}"); // true
-  print("10 in a: ${a.contains(10)}"); // false
-
-  // Bitwise (only works on individual integers)
-  int x = 5; // 0101
-  int y = 3; // 0011
-  print("Bitwise AND: $x & $y = ${x & y}"); // 0001 = 1
-  print("Bitwise OR: $x | $y = ${x | y}");  // 0111 = 7
-  print("Bitwise XOR: $x ^ $y = ${x ^ y}"); // 0110 = 6
-  print("Bitwise NOT: ~$x = ${~x}");        // Inverts all bits
-  print("Shift left: $x << 1 = ${x << 1}"); // 1010 = 10
-  print("Shift right: $x >> 1 = ${x >> 1}");// 0010 = 2
-
-  // array concatenation
   var concat = [...a, ...b];
-  print("concatinated: $concat"); 
+  print("Concatenation: $concat"); 
+
+  // Contains
+  print("2 in a: ${a.contains(2)}");
+  print("10 in a: ${a.contains(10)}");
 
 }

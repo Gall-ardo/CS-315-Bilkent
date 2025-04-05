@@ -80,45 +80,36 @@
 
     
 
-    console.log("\n\n6: Allowed operators:");
-    // JS arrays support: [], length, push, pop, shift, unshift, slice, splice, concat, etc.
+    console.log("\n\n6: Allowed Operations:");
 
-    const a1 = [1, 2, 3];
-    const a2 = [1, 2, 3];
-    const a3 = [1, 2, 4];
+    const a = [1, 2, 3];
+    const b = [4, 5, 6];
+    const c = [1, 2, 3];
+    console.log("a:", a, "b:", b, "c:", c);
+    const d = a;
 
-    // Equality
-    console.log("a1 == a2:", a1 == a2);   // false (different references)
-    console.log("a1 === a2:", a1 === a2); // false
-    const a4 = a1;
-    console.log("a1 === a4:", a1 === a4); // true
+    console.log("\nReference equality:");
+    console.log("a == c:", a == c); 
+    console.log("a == d:", a == d);  
 
-    // Comparison (doesn't work as expected)
-    console.log("a1 < a3:", a1 < a3);     // false (compares string form)
-    console.log("a1 > a3:", a1 > a3);     // false
+    // reference equality, same for arrays
+    console.log("a === c:", a === c); 
+    console.log("a === d:", a === d);   
 
-    // Concatenation with +
-    const result = a1 + a3;
-    console.log("a1 + a3:", result); // "1,2,31,2,4" – not real concatenation
+    console.log("\nComparison (not meaningful for arrays):");
+    console.log("a < c:", a < c); 
+    console.log("a > c:", a > c); 
 
-    // Correct way to concat (not operator-based)
-    const concat = a1.concat(a3);
-    console.log("a1.concat(a3):", concat);
+    console.log("\nConcatenation:");
+    const concat = a.concat(b);
+    console.log("a.concat(b):", concat); // proper array concatenation
+    const wrongConcat = a + b;
+    console.log("a + b (wrong):", wrongConcat); // results in "1,2,34,5,6" – string
 
-    // Bitwise operations on individual values
-    const x = 5; // 0101
-    const y = 3; // 0011
-    console.log("x & y:", x & y);     // 1
-    console.log("x | y:", x | y);     // 7
-    console.log("x ^ y:", x ^ y);     // 6
-    console.log("~x:", ~x);           // -6
-    console.log("x << 1:", x << 1);   // 10
-    console.log("x >> 1:", x >> 1);   // 2
+    console.log("\n\"in\" operator (checks index):");
+    console.log("1 in a:", 1 in a); 
+    console.log("10 in a:", 10 in a); 
 
-    // Membership: "in" checks keys, not values
-    console.log("1 in a1:", 1 in a1);         // true (index 1 exists)
-    console.log("10 in a1:", 10 in a1);       // false
-    console.log("a1.includes(2):", a1.includes(2)); // true (value check)
 
   </script>
 </body>

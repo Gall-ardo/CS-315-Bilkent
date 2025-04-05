@@ -1,5 +1,7 @@
 use std::any::type_name;
 use std::convert::TryInto;
+use std::ptr::eq;
+
 
 fn type_of<T>(_: &T) -> &'static str {
     type_name::<T>()
@@ -81,32 +83,22 @@ fn main(){
 
     println!("\n\n6: Allowed Operations: ");
 
-    println!("1. Comparisons (==, !=, <, >, <=, >=)");
-    let a1 = [1, 2, 3];
-    let a2 = [1, 2, 3];
-    let a3 = [1, 2, 4];
+    let a = [1, 2, 3];
+    let b = [4, 5, 6];
+    let c = [1, 2, 3];
+    println!("a: {:?}, b: {:?}, c: {:?}", a, b, c);
 
-    println!("a1 == a2: {}", a1 == a2); // true
-    println!("a1 != a3: {}", a1 != a3); // true
-    println!("a1 < a3: {}", a1 < a3);   // true (lexicographic)
-    println!("a3 > a1: {}", a3 > a1);   // true
+    println!("Compare contents:");
+    println!("a == b: {}", a == b);
+    println!("a == c: {}", a == c);
+    println!("a != c: {}", a != c); 
+    println!("a < b: {}", a < b); 
 
-    println!("\n2. Memory equality using std::ptr::eq");
-    println!("std::ptr::eq(&a1, &a2): {}", std::ptr::eq(&a1, &a2)); // false
-    let a4 = &a1;
-    println!("std::ptr::eq(&a1, a4): {}", std::ptr::eq(&a1, a4));   // true
-
-    println!("\n3. Bitwise operations on elements");
-    let x: i32 = 5; // 0101
-    let y: i32 = 3; // 0011
-    println!("x & y: {}", x & y);  // 1
-    println!("x | y: {}", x | y);  // 7
-    println!("x ^ y: {}", x ^ y);  // 6
-    println!("!x: {}", !x);        // -6 (bitwise NOT)
-    println!("x << 1: {}", x << 1); // 10
-    println!("x >> 1: {}", x >> 1); // 2
-
-    
-    
+    println!("Compare references:");
+    println!("eq(&a, &b): {}", eq(&a, &b));
+    println!("eq(&a, &c): {}", eq(&a, &c));
+    let d = &a;
+    println!("eq(&a, d): {}", eq(&a, d));
+       
 }
     

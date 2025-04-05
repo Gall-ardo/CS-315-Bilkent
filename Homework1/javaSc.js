@@ -72,11 +72,32 @@
 
     console.log("\n\n6: Allowed operators:");
     // JS arrays support: [], length, push, pop, shift, unshift, slice, splice, concat, etc.
-    console.log("arr1.length =", arr1.length);
-    console.log("arr1 includes 5?", arr1.includes(5));
-    console.log("arr1 index of 7:", arr1.indexOf(7));
-    console.log("arr1 joined:", arr1.join("-"));
-    arr1.push(11);
-    console.log("After push(11):", arr1);
-    arr1.pop();
-    console.log("After pop():", arr1);
+    console.log("\n\n6: Allowed Operations:");
+
+    const a = [1, 2, 3];
+    const b = [4, 5, 6];
+    const c = [1, 2, 3];
+    console.log("a:", a, "b:", b, "c:", c);
+    const d = a;
+
+    console.log("\nReference equality:");
+    console.log("a == c:", a == c); 
+    console.log("a == d:", a == d);  
+
+    // reference equality, same for arrays
+    console.log("a === c:", a === c); 
+    console.log("a === d:", a === d);   
+
+    console.log("\nComparison (not meaningful for arrays):");
+    console.log("a < c:", a < c); 
+    console.log("a > c:", a > c); 
+
+    console.log("\nConcatenation:");
+    const concat = a.concat(b);
+    console.log("a.concat(b):", concat); // proper array concatenation
+    const wrongConcat = a + b;
+    console.log("a + b (wrong):", wrongConcat); // results in "1,2,34,5,6" – string
+
+    console.log("\n\"in\" operator (checks index):");
+    console.log("1 in a:", 1 in a); 
+    console.log("10 in a:", 10 in a); 

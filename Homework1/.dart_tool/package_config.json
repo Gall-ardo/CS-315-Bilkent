@@ -1,0 +1,21 @@
+{
+  "configVersion": 2,
+  "packages": [
+    {
+      "name": "collection",
+      "rootUri": "file:///C:/Users/Ms%C4%B1/AppData/Local/Pub/Cache/hosted/pub.dev/collection-1.19.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
+      "name": "homework1",
+      "rootUri": "../",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    }
+  ],
+  "generated": "2025-04-05T00:38:46.558746Z",
+  "generator": "pub",
+  "generatorVersion": "3.7.2",
+  "pubCache": "file:///C:/Users/Ms%C4%B1/AppData/Local/Pub/Cache"
+}

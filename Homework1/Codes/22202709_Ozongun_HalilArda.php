@@ -71,82 +71,112 @@ echo "Slice from -4:\n";
 print_r($slice);
 
 
+echo "\n\n6: Allowed Operations:\n";
 
-echo "\n\n6: Aloowed Operations: \n";
+$a = array(1, 2, 3);
+$b = array(4, 5, 6);
+$c = array(1, 2, 3);
 
-$a1 = array(1, 2, 3, 4, 5);
-$a2 = array(5, 4, 3, 2, 1);
-$a3 = array(6, 7, 8, 9, 10);
+echo "a: ";
+print_r($a);
+echo "b: ";
+print_r($b);
+echo "c: ";
+print_r($c);
 
-# equality
-if ($a1 == $a2) {
-    echo "Arrays are equal.\n";
+echo "\nCompare contents:\n";
+echo "a == b: ";
+if ($a == $b) {
+    echo "true\n";
 } else {
-    echo "Arrays are not equal.\n";
+    echo "false\n";
 }
 
-# comparison
-if ($a1 < $a3) {
-    echo "Array 1 is less than Array 3.\n";
+echo "a == c: ";
+if ($a == $c) {
+    echo "true\n";
 } else {
-    echo "Array 1 is not less than Array 3.\n";
+    echo "false\n";
 }
 
-# Strict comparison: compares values + keys + order
-if ($a1 === $a2) {
-    echo "Arrays are strictly equal.\n";
+echo "a != c: ";
+if ($a != $c) {
+    echo "true\n";
 } else {
-    echo "Arrays are not strictly equal.\n";
+    echo "false\n";
 }
 
-# concatenation
-$a4 = $a1 + $a2;
-echo "Concatenation of Array 1 and Array 2:\n";
-print_r($a4);
-$differentValue = $a3 + $a1;
-echo "Concatenation of Array 1 and Array 3:\n";
-print_r($differentValue);
-$newMap = array(6 => 7, 8 => 9, 10 => 11);
-# concat new map to array 1
-$a5 = $a1 + $newMap;
-echo "Concatenation of Array 1 and new map:\n";
-print_r($a5);
+echo "a < c: ";
+if ($a < $c) {
+    echo "true\n";
+} else {
+    echo "false\n";
+}
 
+echo "a <= c: ";
+if ($a <= $c) {
+    echo "true\n";
+} else {
+    echo "false\n";
+}
 
+echo "\nCompare references (identity):\n";
+echo "a === c: ";
+if ($a === $c) {
+    echo "true\n";
+} else {
+    echo "false\n";
+}
 
-$a1 = [1, 2, 3];
-$a2 = [1, 2, 3];
-$a3 = [1, 2, 4];
+$d = $a;
+echo "a === d: ";
+if ($a === $d) {
+    echo "true\n";
+} else {
+    echo "false\n";
+}
 
-// Equality (==)
-echo "a1 == a2: " . var_export($a1 == $a2, true) . "\n"; // true
-echo "a1 == a3: " . var_export($a1 == $a3, true) . "\n"; // false
+$e = [2 => 3, 0 => 1, 1 => 2];
+echo "a == e (same values, different keys): ";
+if ($a == $e) {
+    echo "true\n";
+} else {
+    echo "false\n";
+}
 
-// Identity (===)
-echo "a1 === a2: " . var_export($a1 === $a2, true) . "\n"; // true
-$a4 = [2 => 3, 0 => 1, 1 => 2];
-echo "a1 == a4: " . var_export($a1 == $a4, true) . "\n"; // true (values same)
-echo "a1 === a4: " . var_export($a1 === $a4, true) . "\n"; // false (order & keys matter)
+echo "a === e (different keys/order): ";
+if ($a === $e) {
+    echo "true\n";
+} else {
+    echo "false\n";
+}
 
-// Concatenation with +
-$a5 = [1 => 'a', 2 => 'b'];
-$a6 = [2 => 'c', 3 => 'd'];
-$result = $a5 + $a6;
-echo "Concatenation with + (keys matter):\n";
-print_r($result); // key 2 from $a5 is kept, not overwritten
+echo "\nConcatenation:\n";
+$sameKeyDiffVal = $a + $b;
+echo "a + b:\n";
+print_r($sameKeyDiffVal);
 
-// Bitwise operators on elements
-$x = 5; // 0101
-$y = 3; // 0011
-echo "x & y = " . ($x & $y) . "\n";
-echo "x | y = " . ($x | $y) . "\n";
-echo "x ^ y = " . ($x ^ $y) . "\n";
-echo "~x = " . (~$x) . "\n";
-echo "x << 1 = " . ($x << 1) . "\n";
-echo "x >> 1 = " . ($x >> 1) . "\n";
+$d = array(6 => 7, 8 => 9, 10 => 11);
+echo "d: ";
+print_r($d);
 
+$diffKey = $a + $d;
+echo "a + d:\n";
+print_r($diffKey);
 
+echo "\nContains:\n";
+echo "in_array(2, a): ";
+if (in_array(2, $a)) {
+    echo "true\n";
+} else {
+    echo "false\n";
+}
 
-
+echo "in_array(10, a): ";
+if (in_array(10, $a)) {
+    echo "true\n";
+} else {
+    echo "false\n";
+}
 
 ?>

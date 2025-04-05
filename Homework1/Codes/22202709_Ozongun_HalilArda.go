@@ -81,31 +81,20 @@ func main() {
 	
 	fmt.Println("6: Allowed Operations: ")
 
-	fmt.Println("2: Equality of arrays (value-based)")
-	a1 := [3]int{1, 2, 3}
-	a2 := [3]int{1, 2, 3}
-	a3 := [3]int{3, 2, 1}
-	fmt.Println("a1 == a2:", a1 == a2) // true
-	fmt.Println("a1 == a3:", a1 == a3) // false
-
-	// Compile-time error if array lengths don't match
-	// a4 := [4]int{1, 2, 3, 4}
-	// fmt.Println(a1 == a4) // ❌ Error: mismatched types
-
-	fmt.Println("3: Memory equality using pointers")
-	p1 := &a1
-	p2 := &a2
-	fmt.Println("p1 == p2:", p1 == p2) // false
-
-	p3 := &a1
-	fmt.Println("p1 == p3:", p1 == p3) // true
-
-	fmt.Println("\n4: Concatenation — Not supported for arrays directly")
-	// No + operator for arrays
-	// You'd need to convert to slice and use append:
-	slice := append(a1[:], a2[:]...)
-	fmt.Println("Concatenated as slice:", slice)
-
-
-
+	a := [3]int{1, 2, 3}
+	b := [3]int{4, 5, 6}
+	c := [3]int{1, 2, 3}
+	
+	fmt.Println("Equality: value-based")
+	fmt.Println("a == b:", a == b) 
+	fmt.Println("a == c:", a == c)
+	
+	/*d := [4]int{1, 2, 3, 4}
+	fmt.Println("a == d:", a == d)*/ // Compile-time error: mismatched types
+	
+	fmt.Println("Adress equality using pointers")
+	p1 := &a
+	p2 := &b
+	fmt.Println("p1 == p2:", p1 == p2)
+	
 }

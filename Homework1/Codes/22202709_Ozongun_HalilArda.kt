@@ -83,24 +83,39 @@ fun main(){
 
 
 
+
     println("\n6.Allowed Operations")
+    val a = arrayOf(1, 2, 3)
+    val b = arrayOf(4, 5, 6)
+    val c = arrayOf(1, 2, 3)
+    print("a: ")
+    printArray(a)
+    print("b: ")
+    printArray(b)
+    print("c: ")
+    printArray(c)
 
-    val a1 = arrayOf(1, 2, 3)
-    val a2 = arrayOf(1, 2, 3)
-    val a3 = arrayOf(4, 5, 6)
+    println("Compare contents:") // Checks if the two specified arrays are structurally equal to one another.
+    println("a contentEquals b: ${a contentEquals b}") 
+    println("a contentEquals c: ${a contentEquals c}") 
 
-    println("a1 == a2: ${a1 == a2}")  // false, compares memory
-    println("a1 === a2: ${a1 === a2}") // false, same as above
-    println("a1 contentEquals a2: ${a1 contentEquals a2}")  // true
-    println("a1 contentEquals a3: ${a1 contentEquals a3}")  // false
+    println("Structural equality:") // two objects have the same content or structure, but for arrays: assigned variables point to the same object.
+    println("a == b: ${a == b}") 
+    println("a == c: ${a == c}")
 
-    val a4 = a1 + a3 // concatenation
-    println("Array concatenation: $a4")
+    println("Referential equality:") // two references pointing to the same object
+    println("a === b: ${a === b}") 
+    println("a === c: ${a === c}")
 
-    // in operator - check if value exists in array:
-    println("2 in a1: ${2 in a1}") // true
-    println("10 in a1: ${10 in a1}") // false
+    val d = a
+    println("a == d: ${a == d}")
+    println("a === d: ${a === d}") 
 
+    println("Concatenation:")
+    val concat = a + b
+    printArray(concat)
 
-
+    println("Contains:")
+    println("1 in a: ${1 in a}")
+    println("10 in a: ${10 in a}") 
 }
