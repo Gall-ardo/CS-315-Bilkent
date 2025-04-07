@@ -1,4 +1,4 @@
-import 'package:collection/collection.dart';
+//import 'package:collection/collection.dart';
 
 void main(){
   print("1: Legal types for subscripts");
@@ -43,6 +43,14 @@ void main(){
   print("init4: $init4");
   const init5 = [1, 2, 3, 4, 5];
   print("init5: $init5");
+  var init6 = List.unmodifiable([1, 2, 3, 4, 5]);
+  print("init6: $init6");
+  var init7 = [...init1, ...init2, ...init3];
+  print("init7: $init7");
+  var init8 = [for (var i = 0; i < 5; i++) i * i];
+  print("init8: $init8");
+  var init9 = List.empty(growable: false);
+  print("init9: $init9");
 
 
 
@@ -79,8 +87,8 @@ void main(){
   print("a == d: ${a == d}"); // true, same object
   print("identical(a, d): ${identical(a, d)}"); // true, same object
 
-  Function eq = const ListEquality().equals;
-  print("ListEquality: ${eq(a, c)}"); 
+  //Function eq = const ListEquality().equals;
+  //print("ListEquality: ${eq(a, c)}"); 
 
   // concatenation
   var ab = a + b;

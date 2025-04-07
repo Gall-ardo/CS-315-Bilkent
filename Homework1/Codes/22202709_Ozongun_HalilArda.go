@@ -68,13 +68,16 @@ func main() {
 
 
 	fmt.Println("5: Array Slice: ")
-	slice1 := arr1[1:3] // Slice of array
-	slice2 := arr1[1:] // Slice of array with capacity
+	slice1 := arr1[1:3]
+	slice2 := arr1[1:] 
 	fmt.Println(slice1)
 	fmt.Println(reflect.TypeOf(slice1).Kind())
 	fmt.Println(slice2)
 	fmt.Println(reflect.TypeOf(slice2).Kind())
 	// slice3 := arr1[1:3:1] //  Compile time error.
+	slice3 := arr1[1:3:4] // [start:end: max capacity]
+	fmt.Println(slice3)
+	fmt.Println(reflect.TypeOf(slice3).Kind())
 
 
 

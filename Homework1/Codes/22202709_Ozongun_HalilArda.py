@@ -26,7 +26,15 @@ def main():
     print("3: Ragged multidimensional arrays:")
     multiDimArr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
     print(multiDimArr)
+    print("Type of multiDimArr:", type(multiDimArr))
+    print("Type of first element of multiDimArr:", type(multiDimArr[0]))
     #raggedArr = np.array([[1, 2, 3], [4, 5], [7, 8, 9]]) # ValueError: The requested array has an inhomogeneous shape.
+    raggedArr = np.array([[1, 2, 3], [4, 5], [7, 8, 9]], dtype=object)
+    print(raggedArr)
+    print("Type of raggedArr:", type(raggedArr))
+    print("Type of first element of raggedArr:", type(raggedArr[0]))
+
+
 
 
 
@@ -47,12 +55,12 @@ def main():
     print(np.random.seed(5))
     a = np.array([1, 2, 3, 4, 5])
     c = np.array([2])*5
-    print("Array 1:", a)
+    print("Array 1:", a, len(a))
     print("Array 2:", c, len(c))
 
 
 
-    print("5: Array slicing:")
+    print("\n\n5: Array slicing:")
     b = a[1:4]
     print("begin and end given", b)
     print(type(b))
@@ -69,6 +77,10 @@ def main():
     arr = [1, 2, 3, 4, 5, 6]
     filtered = [x for x in arr if x % 3 > 1]
     print("Filtered array:", filtered)
+    multiDim = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+    print ("First column:", multiDim[..., 0])
+
+
 
 
 
@@ -79,10 +91,12 @@ def main():
     print("Array a:", a)
     print("Array b:", b)
     print("Array c:", c)
+    shorter = np.array([1, 2, 3])
 
     print("Equality Checking:")
     print("a == c:", a == c)
     print("a == b:", a == b)
+    # print("a == shorter:", a == shorter) # ValueError: operands could not be broadcast together with shapes (9,) (3,)
 
     print("Comparison:")
     print(" a < c:", a < c)
@@ -98,7 +112,7 @@ def main():
 
     print("Adding constant = 10000 to all elements:", a + 10000)
 
-    print("Element-wise operations using a and c arrays:")
+    print("Arithmetic operations using a and c arrays:")
     print("a + c:", a + c)       
     print("a - c:", a - c) 
     print("a * c:", a * c)

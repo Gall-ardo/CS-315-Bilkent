@@ -46,7 +46,7 @@ fun main(){
 
     println ("\n4. Initialization of arrays")
 
-    val arr2 = arrayOf(1, 2, 3, 4, 5, "fdbjlka", 3.14, true) // mix type
+    val arr2 = arrayOf(1, 2, 3, 4, 5, "Ataturk", 3.14, true) // mix type
     printArray(arr2) 
 
     val intArr = IntArray(5) // size 5, 00000

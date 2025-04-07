@@ -73,10 +73,13 @@
     console.log(slice4);
     let slice5 = arr1.slice(-3, -1); // (begin, end)
     console.log(slice5);
+    let slice6 = arr1.slice();
+    console.log(slice6); // copy
 
     // using a filter function
     let filtered = arr1.filter((item) => item > 5);
     console.log("Filtered values (item > 5):", filtered);
+
 
     
 
@@ -98,17 +101,18 @@
 
     console.log("\nComparison (not meaningful for arrays):");
     console.log("a < c:", a < c); 
-    console.log("a > c:", a > c); 
+    console.log("a >= c:", a >= c); 
 
-    console.log("\nConcatenation:");
-    const concat = a.concat(b);
-    console.log("a.concat(b):", concat); // proper array concatenation
+    console.log("\nConcatenation:"); // show using ... spread operator
+    const concat = [...a, ...b];
+    console.log("a + b (correct):", concat);
     const wrongConcat = a + b;
     console.log("a + b (wrong):", wrongConcat); // results in "1,2,34,5,6" – string
 
     console.log("\n\"in\" operator (checks index):");
     console.log("1 in a:", 1 in a); 
     console.log("10 in a:", 10 in a); 
+    console.log("4 in b:", 4 in b);
 
 
   </script>

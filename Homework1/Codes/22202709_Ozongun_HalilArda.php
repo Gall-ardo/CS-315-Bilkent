@@ -71,112 +71,67 @@ echo "Slice from -4:\n";
 print_r($slice);
 
 
+
+
+
 echo "\n\n6: Allowed Operations:\n";
 
 $a = array(1, 2, 3);
 $b = array(4, 5, 6);
 $c = array(1, 2, 3);
+$onlyOrderDifferent = array(2 => 3, 0 => 1, 1 => 2);
+$onlyKeyDifferent = array(1 => 1, 2 => 2, 3 => 3);
+$onlyFirstValueBigger = array(2, -1, -1);
 
-echo "a: ";
-print_r($a);
-echo "b: ";
-print_r($b);
-echo "c: ";
-print_r($c);
+echo "a: "; print_r($a);
+echo "b: "; print_r($b);
+echo "c: "; print_r($c);
+echo "onlyOrderDifferent: "; print_r($onlyOrderDifferent);
+echo "onlyKeyDifferent: "; print_r($onlyKeyDifferent);
+echo "onlyFirstValueBigger: "; print_r($onlyFirstValueBigger);
 
 echo "\nCompare contents:\n";
-echo "a == b: ";
-if ($a == $b) {
-    echo "true\n";
-} else {
-    echo "false\n";
-}
+echo "a == b: "; echo $a == $b ? "true\n" : "false\n";
+echo "a == c: "; echo $a == $c ? "true\n" : "false\n";
+echo "a != c: "; echo $a != $c ? "true\n" : "false\n";
 
-echo "a == c: ";
-if ($a == $c) {
-    echo "true\n";
-} else {
-    echo "false\n";
-}
+echo "a == onlyOrderDifferent: "; 
+echo $a == $onlyOrderDifferent ? "true\n" : "false\n";
 
-echo "a != c: ";
-if ($a != $c) {
-    echo "true\n";
-} else {
-    echo "false\n";
-}
+echo "a == onlyKeyDifferent: "; 
+echo $a == $onlyKeyDifferent ? "true\n" : "false\n";
 
-echo "a < c: ";
-if ($a < $c) {
-    echo "true\n";
-} else {
-    echo "false\n";
-}
+echo "a == f (same values, string vs int): "; 
+$f = ['1', '2', '3'];
+echo $a == $f ? "true\n" : "false\n";
 
-echo "a <= c: ";
-if ($a <= $c) {
-    echo "true\n";
-} else {
-    echo "false\n";
-}
+echo "a < c: "; echo $a < $c ? "true\n" : "false\n";
+echo "a <= c: "; echo $a <= $c ? "true\n" : "false\n";
+
+echo "a < onlyFirstValueBigger: "; 
+echo $a < $onlyFirstValueBigger ? "true\n" : "false\n";
 
 echo "\nCompare references (identity):\n";
-echo "a === c: ";
-if ($a === $c) {
-    echo "true\n";
-} else {
-    echo "false\n";
-}
-
+echo "a === c: "; echo $a === $c ? "true\n" : "false\n";
 $d = $a;
-echo "a === d: ";
-if ($a === $d) {
-    echo "true\n";
-} else {
-    echo "false\n";
-}
-
-$e = [2 => 3, 0 => 1, 1 => 2];
-echo "a == e (same values, different keys): ";
-if ($a == $e) {
-    echo "true\n";
-} else {
-    echo "false\n";
-}
-
-echo "a === e (different keys/order): ";
-if ($a === $e) {
-    echo "true\n";
-} else {
-    echo "false\n";
-}
+echo "a === d: "; echo $a === $d ? "true\n" : "false\n";
+echo "a === onlyOrderDifferent (different keys/order): "; 
+echo $a === $onlyOrderDifferent ? "true\n" : "false\n";
+echo "a === f (same values, string vs int): "; 
+echo $a === $f ? "true\n" : "false\n";
 
 echo "\nConcatenation:\n";
 $sameKeyDiffVal = $a + $b;
-echo "a + b:\n";
-print_r($sameKeyDiffVal);
-
+echo "a + b:\n"; print_r($sameKeyDiffVal);
 $d = array(6 => 7, 8 => 9, 10 => 11);
-echo "d: ";
-print_r($d);
-
+echo "d: "; print_r($d);
 $diffKey = $a + $d;
-echo "a + d:\n";
-print_r($diffKey);
+echo "a + d:\n"; print_r($diffKey);
 
 echo "\nContains:\n";
 echo "in_array(2, a): ";
-if (in_array(2, $a)) {
-    echo "true\n";
-} else {
-    echo "false\n";
-}
-
-echo "in_array(10, a): ";
-if (in_array(10, $a)) {
-    echo "true\n";
-} else {
-    echo "false\n";
-}
+echo in_array(2, $a) ? "true\n" : "false\n";
+echo "in_array(10, a): "; 
+echo in_array(10, $a) ? "true\n" : "false\n";
 
 ?>
