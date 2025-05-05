@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple-way Selection Statements in JavaScript</title>
+    <style>
+        body {
+            font-family: monospace;
+            white-space: pre;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .output {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Multiple-way Selection Statements in JavaScript</h1>
+    <div class="output" id="output"></div>
+
+    <script>
+
+  
+class Obj {
+    constructor(x) {this.x = x;}
+}
+  
+
+console.log("1-What is the form and type of the control expression?");
+
+// variable
+let value = 5;
+switch (value) {
+    case 1:
+    console.log("Control expression is a number with value 1");
+    break;
+    case 5:
+    console.log("Control expression is a number with value 5");
+    break;
+}
+
+// expression
+let val1 = 3;
+let val2 = 4;
+switch (val1 + val2) {
+    case 7:
+    console.log("Control expression is an expression resulting in 7");
+    break;
+}
+
+// literal
+switch (10) {
+    case 10:
+    console.log("Control expression is a literal number 10");
+    break;
+    case 20:
+    console.log("Control expression is a literal number 20");
+    break;
+}
+
+// string
+let str = "hello";
+switch (str) {
+    case "hello":
+    console.log("Control expression is a string: hello");
+    break;
+    case "world":
+    console.log("Control expression is a string: world");
+    break;
+}
+
+// boolean
+let isTrue = true;
+switch (isTrue) {
+    case true:
+    console.log("Control expression is a boolean: true");
+    break;
+    case false:
+    console.log("Control expression is a boolean: false");
+    break;
+}
+
+// object
+let obj = new Obj(4);
+switch (obj) {
+    case new Obj(4):
+    console.log("This won't match because objects are compared by reference");
+    break;
+    default:
+    console.log("Default case: Objects with same values but different references don't match");
+    break;
+}
+
+// object property
+switch (obj.x) {
+    case 4:
+    console.log("Control expression using object property works: obj.x = 4");
+    break;
+}
+
+// null
+let nullValue = null;
+switch (nullValue) {
+    case null:
+    console.log("Control expression is null");
+    break;
+    default:
+    console.log("Not null");
+    break;
+}
+
+// Using undefined
+let undefinedValue;
+switch (undefinedValue) {
+    case undefined:
+    console.log("Control expression is undefined");
+    break;
+    default:
+    console.log("Not undefined");
+    break;
+}
+
+// typeof
+let func = function() {};
+let arr = [1, "two", true, null, [1, 2, 3], { a: 1, b: 2 }, func];
+for (let i = 0; i < arr.length; i++) {
+    let element = arr[i];
+    console.log(`Checking element ${i}:`, element);
+
+    switch (typeof element) {
+        case "object":
+            console.log("Control expression is an object (could be array, null, or plain object)");
+            break;
+        case "string":
+            console.log("Control expression is a string");
+            break;
+        case "number":
+            console.log("Control expression is a number");
+            break;
+        case "boolean":
+            console.log("Control expression is a boolean");
+            break;
+        case "function":
+            console.log("Control expression is a function");
+            break;
+        case "undefined":
+            console.log("Control expression is undefined");
+            break;
+        case "symbol":
+            console.log("Control expression is a symbol");
+            break;
+        case "bigint":
+            console.log("Control expression is a bigint");
+            break;
+        default:
+            console.log("Control expression is of an unknown type");
+            break;
+    }
+}
+
+let num = 7;
+switch (true) {
+  case num < 5:
+    console.log("Less than 5");
+    break;
+  case num < 10:
+    console.log("Less than 10");
+    break;
+  default:
+    console.log("10 or more");
+}
+
+
+console.log("\n\n2-How are the selectable segments specified?")
+value = 5;
+switch (value) {
+    case 5:
+    console.log("single statement");
+    break;
+    case 10:
+    console.log("first statement");
+    console.log("multiple statment");
+    break;
+    case 15:
+    case 20:
+    console.log("multiple case statement");
+    case 25: {
+        console.log("case with block");
+    }
+}
+
+console.log("\n\n3-Is execution flow through the structure restricted to include just a single selectable segment?");
+
+value = 1;
+switch (value) {
+    case 1:
+    console.log("Value is 1");
+    break;
+    default:
+    console.log("Default case");
+}
+switch (value) {
+    case 1:
+    console.log("Value is 1");
+    default:
+    console.log("Default case also executes");
+}
+
+
+console.log("\n\n4-How are case values specified?");
+
+value = 3;
+// Literals
+console.log("Literal case values:");
+switch (value) {
+    case 1:
+    console.log("Matched 1");
+    case 2:
+    console.log("Matched 2");
+}
+
+// expressions
+switch (value) {
+    case 1 + 1:
+    console.log("Matched 2");
+    break;
+    case 2 + 1:
+    console.log("Matched 3");
+}
+
+// varıables
+let x = 2, y = 3;
+switch (value) {
+    case x:
+    console.log("Matched x (2)");
+    break;
+    case x + y:
+    console.log("Matched x + y (5)");
+    break;
+}
+
+// String case values
+let footballer = "Barella";
+switch (footballer) {
+    case "Barella":
+    console.log("Matched Barella");
+    break;
+    case "Lautaro":
+    console.log("Matched Lautaro");
+}
+
+// mixed 
+let mixedValue = "42";
+switch (mixedValue) {
+    case 42:
+    console.log("Matched number 42");
+    break;
+    case "42":
+    console.log("Matched string '42'");
+    break;
+    case true:
+    console.log("Matched boolean true");
+    break;
+}
+
+let team = "Inter";
+switch (team) {
+    case "Inter":
+    case "Milan":
+    console.log("Italian team");
+    break;
+    case "Barcelona":
+    console.log("Spanish team");
+    break;
+}
+
+
+console.log("\n\n5-What is done about unrepresented expression values?");
+value = 100;
+switch (value) {
+    case 10:
+        console.log("Matched 10");
+        break;
+    default:
+        console.log("Default case: No match for the given value");
+}
+
+    </script>
+</body>
+</html>
